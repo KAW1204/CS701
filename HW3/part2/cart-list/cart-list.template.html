@@ -1,0 +1,53 @@
+<table>
+<caption><b>My Books</b></caption>
+  <thead>
+    <tr>
+        <th>Title</th>
+        <th>Qty</th>
+        <th>UnitPrice</th>
+        <th>$UnitPrice</th>
+        <th>Line Total</th>
+        <th>Total  {{$ctrl.updateTotal() | currency}} </th>
+    </tr>
+  </thead>
+  <tbody >
+    
+   <!-- Add code for table rows -->
+    <tbody ng-repeat = "book in $ctrl.defaultBooks">
+        
+           <tr>
+           
+           <td><input ng-model = "book.title"></td>
+             
+           <td><input ng-model = "book.qty" size = "3"></td>
+           <td>$<input ng-model = "book.price"></td>
+           <td>{{book.price | currency}}</td>
+           <td>{{book.price * book.qty | currency}}</td>
+          
+           
+           <td><button ng-click ="$ctrl.removeBook($index)">Remove</button></td>
+           
+          
+           
+        
+        </tbody>
+ 
+
+
+    <tr>
+        <th colspan="3">
+            <button ng-click="$ctrl.addBook()">
+                    New
+            </button>
+        </th>
+        <th colspan="3">
+            <button ng-click="$ctrl.saveBooks()">
+                Save
+            </button>
+        </th>        
+    </tr>
+    
+  </tbody>
+</table>
+
+
